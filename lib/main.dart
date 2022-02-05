@@ -1,8 +1,24 @@
+import 'package:alarm_ui/enums.dart';
+import 'package:alarm_ui/model/menu_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:provider/provider.dart';
 
 import 'home_page.dart';
 
-void main() {
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var initialSettingAndroid = AndroidInitializationSettings('app_icon');
+
+  final InitializationSettings initializationSettings = InitializationSettings(
+    android: initialSettingAndroid,
+  );
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+      onSelectNotification: (String? payload) async {
+    if (payload != null) debugPrint('Notification Played: ' + payload);
+  });
   runApp(const MyApp());
 }
 
@@ -19,7 +35,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primaryColor: Colors.blue,
       ),
-      home: HomePage(),
+      home: ChangeNotifierProvider<MenuInfo>(
+          create: (context) => MenuInfo(Menu.clock, '', ''), child: HomePage()),
     );
   }
 }
