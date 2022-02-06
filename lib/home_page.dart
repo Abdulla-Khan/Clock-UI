@@ -44,6 +44,7 @@ class _HomePageState extends State<HomePage> {
               if (value.menu == Menu.alarm) return AlarmPage();
 
               return Container(
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 64),
                 child: RichText(
                     text: TextSpan(style: TextStyle(fontSize: 20), children: [
                   TextSpan(text: 'Work In Progress\n'),
