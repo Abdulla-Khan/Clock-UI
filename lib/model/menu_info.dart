@@ -9,9 +9,9 @@ class MenuInfo extends ChangeNotifier {
   MenuInfo(this.menu, this.title, this.image);
 
   updateMenu(MenuInfo mi) {
-    this.menu = mi.menu;
-    this.title = mi.title;
-    this.image = mi.image;
+    menu = mi.menu;
+    title = mi.title;
+    image = mi.image;
 
     notifyListeners();
   }

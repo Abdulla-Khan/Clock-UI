@@ -18,7 +18,7 @@ class _AlarmPageState extends State<AlarmPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Alarm',
             style: TextStyle(
                 color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
@@ -27,9 +27,9 @@ class _AlarmPageState extends State<AlarmPage> {
             child: ListView(
               children: alarms
                   .map<Widget>((alarm) => Container(
-                        margin: EdgeInsets.only(bottom: 32),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        margin: const EdgeInsets.only(bottom: 32),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 16),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                                 colors: alarm.grade,
@@ -40,7 +40,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                   color: alarm.grade.last.withOpacity(0.4),
                                   blurRadius: 8,
                                   spreadRadius: 2,
-                                  offset: Offset(4, 4))
+                                  offset: const Offset(4, 4))
                             ],
                             borderRadius: BorderRadius.circular(24)),
                         child: Column(
@@ -50,7 +50,7 @@ class _AlarmPageState extends State<AlarmPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
-                                  children: [
+                                  children: const [
                                     Icon(
                                       Icons.label,
                                       color: Colors.white,
@@ -76,7 +76,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                 )),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
+                              children: const [
                                 Text('7:00 AM',
                                     style: TextStyle(
                                         fontSize: 24,
@@ -94,11 +94,12 @@ class _AlarmPageState extends State<AlarmPage> {
                   strokeWidth: 3,
                   color: CustomColors.clockOutline,
                   borderType: BorderType.RRect,
-                  radius: Radius.circular(24),
-                  dashPattern: [5, 4],
+                  radius: const Radius.circular(24),
+                  dashPattern: const [5, 4],
                   child: Container(
                     width: double.infinity,
-                    padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16, horizontal: 32),
                     decoration: BoxDecoration(
                         color: CustomColors.clockBG,
                         borderRadius: BorderRadius.circular(24)),
@@ -115,10 +116,10 @@ class _AlarmPageState extends State<AlarmPage> {
                             'assets/add_alarm.png',
                             scale: 1.5,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
-                          Text(
+                          const Text(
                             'Add Alarm',
                             style: TextStyle(color: Colors.white),
                           )

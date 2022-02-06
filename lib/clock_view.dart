@@ -15,7 +15,7 @@ class _ClockViewState extends State<ClockView> {
   late Timer timer;
   @override
   void initState() {
-    this.timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {});
     });
     super.initState();
@@ -23,13 +23,13 @@ class _ClockViewState extends State<ClockView> {
 
   @override
   void dispose() {
-    this.timer.cancel();
+    timer.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: widget.size,
       height: widget.size,
       child: Transform.rotate(
@@ -55,14 +55,14 @@ class ClockPainter extends CustomPainter {
     var center = Offset(centerX, centerY);
     var radius = min(centerX, centerY);
 
-    var fillBrush = Paint()..color = Color(0xFF444974);
+    var fillBrush = Paint()..color = const Color(0xFF444974);
 
     var outlineBrush = Paint()
-      ..color = Color(0xFFEAECFF)
+      ..color = const Color(0xFFEAECFF)
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width / 20;
 
-    var centerFillBrush = Paint()..color = Color(0xFFEAECFF);
+    var centerFillBrush = Paint()..color = const Color(0xFFEAECFF);
 
     var secHandBrush = Paint()
       ..color = Colors.orange.shade300
@@ -71,21 +71,23 @@ class ClockPainter extends CustomPainter {
       ..strokeWidth = size.width / 60;
 
     var minHandBrush = Paint()
-      ..shader = RadialGradient(colors: [Color(0xFF748EF6), Color(0xFF77DDFF)])
-          .createShader(Rect.fromCircle(center: center, radius: radius))
+      ..shader =
+          const RadialGradient(colors: [Color(0xFF748EF6), Color(0xFF77DDFF)])
+              .createShader(Rect.fromCircle(center: center, radius: radius))
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = size.width / 30;
 
     var hourHandBrush = Paint()
-      ..shader = RadialGradient(colors: [Color(0xFFEA74AB), Color(0xFFC279FB)])
-          .createShader(Rect.fromCircle(center: center, radius: radius))
+      ..shader =
+          const RadialGradient(colors: [Color(0xFFEA74AB), Color(0xFFC279FB)])
+              .createShader(Rect.fromCircle(center: center, radius: radius))
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = size.width / 24;
 
     var dashBrush = Paint()
-      ..color = Color(0xFFEAECFF)
+      ..color = const Color(0xFFEAECFF)
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 1;

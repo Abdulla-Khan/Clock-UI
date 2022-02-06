@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue,
       ),
       home: ChangeNotifierProvider<MenuInfo>(
-          create: (context) => MenuInfo(Menu.clock, '', ''), child: HomePage()),
+          create: (context) => MenuInfo(Menu.clock, '', ''),
+          child: const HomePage()),
     );
   }
 }
